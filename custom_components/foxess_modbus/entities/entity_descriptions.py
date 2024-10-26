@@ -614,7 +614,9 @@ def _h1_current_voltage_power_entities() -> Iterable[EntityFactory]:
             icon="mdi:transmission-tower-import",
             scale=scale,
             round_to=0.01,
-            post_process=lambda v: v if v > 0 else 0,
+            #post_process=lambda v: v if v > 0 else 0,
+            #In my installation negative grid_ct is feed-in / grid export
+            post_process=lambda v: abs(v) if v < 0 else 0,
             validate=[Range(0, 100)],
         )
         yield ModbusSensorDescription(
@@ -627,7 +629,9 @@ def _h1_current_voltage_power_entities() -> Iterable[EntityFactory]:
             icon="mdi:transmission-tower-export",
             scale=scale,
             round_to=0.01,
-            post_process=lambda v: abs(v) if v < 0 else 0,
+            #post_process=lambda v: abs(v) if v < 0 else 0,
+            #In my installation positive grid_ct is grid consumption / grid import
+            post_process=lambda v: v if v > 0 else 0,
             validate=[Range(0, 100)],
         )
 
