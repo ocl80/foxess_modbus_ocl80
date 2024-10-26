@@ -411,7 +411,8 @@ def _h1_current_voltage_power_entities() -> Iterable[EntityFactory]:
         addresses=[
             ModbusAddressesSpec(input=[11023], models=Inv.H1_G1 | Inv.KH_PRE119),
             ModbusAddressesSpec(holding=[31016], models=Inv.H1_G1 | Inv.H1_LAN | Inv.H1_G2),
-            ModbusAddressesSpec(holding=[31054, 31053], models=Inv.KH_119),
+            #ModbusAddressesSpec(holding=[31054, 31053], models=Inv.KH_119),
+            ModbusAddressesSpec(holding=[31016], models=Inv.KH_119),
         ],
         name="Load Power",
         device_class=SensorDeviceClass.POWER,
@@ -457,7 +458,8 @@ def _h1_current_voltage_power_entities() -> Iterable[EntityFactory]:
         addresses=[
             ModbusAddressesSpec(input=[11011], models=Inv.H1_G1 | Inv.KH_PRE119),
             ModbusAddressesSpec(holding=[31008], models=Inv.H1_G1 | Inv.H1_LAN | Inv.H1_G2),
-            ModbusAddressesSpec(holding=[31046, 31045], models=Inv.KH_119),
+            #ModbusAddressesSpec(holding=[31046, 31045], models=Inv.KH_119),
+            ModbusAddressesSpec(holding=[31008], models=Inv.KH_119),
         ],
         name="Inverter Power",
         device_class=SensorDeviceClass.POWER,
@@ -639,7 +641,8 @@ def _h1_current_voltage_power_entities() -> Iterable[EntityFactory]:
     yield from _grid_ct(
         addresses=[
             ModbusAddressesSpec(input=[11021], models=Inv.KH_PRE119),
-            ModbusAddressesSpec(holding=[31050, 31049], models=Inv.KH_119),
+            #ModbusAddressesSpec(holding=[31050, 31049], models=Inv.KH_119),
+            ModbusAddressesSpec(holding=[31014], models=Inv.KH_119),
         ],
         scale=-0.001,
     )
