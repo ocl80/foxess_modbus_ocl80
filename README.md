@@ -1,4 +1,4 @@
-# FoxESS - Modbus
+# FoxESS - Modbus - ocl80
 
 [![GitHub Release][releases-shield]][releases]
 [![BuyMeCoffee][buymecoffeebadge]][buymecoffee]
