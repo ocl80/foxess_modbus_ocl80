@@ -1,17 +1,17 @@
 # FoxESS - Modbus - ocl80
 
-[![GitHub Release][releases-shield]][releases]
-[![BuyMeCoffee][buymecoffeebadge]][buymecoffee]
-[![Community Forum][forum-shield]][forum]
-
 \*\* **This project is not endorsed by, directly affiliated with, maintained, authorized, or sponsored by FoxESS** \*\*
 
 ## Introduction
 
-A Home Assistant custom component which communicates with FoxESS H-series inverters and derivatives without using FoxESS's cloud.
+This is my fork of [foxess_modbus](https://github.com/nathanmarlor/foxess_modbus) which is a Home Assistant custom component which communicates with FoxESS H-series inverters and derivatives without using FoxESS's cloud.
 
 This means that you're not reliant on FoxESS's cloud infrastructure, so HA keeps working when the cloud goes down.
 You can also read solar production etc in real-time, rather than once every 5 minutes.
+
+If this looks useful, you should almost certainly use the upstream repo at https://github.com/nathanmarlor/foxess_modbus instead of this one. 
+
+The purpose of this fork is to apply / test some quick fixes to enable it to work correctly with a KH inverter with recent firmware (Master 1.39), which I found were otherwise broken, [as per the issue discussed here](https://github.com/nathanmarlor/foxess_modbus/issues/678).
 
 Depending on your inverter model, you can also set charge periods, work mode, min/max SoC.
 See [Supported Features](https://github.com/nathanmarlor/foxess_modbus/wiki/Supported-Features).
