@@ -9,7 +9,7 @@ This is my fork of [foxess_modbus](https://github.com/nathanmarlor/foxess_modbus
 This means that you're not reliant on FoxESS's cloud infrastructure, so HA keeps working when the cloud goes down.
 You can also read solar production etc in real-time, rather than once every 5 minutes.
 
-If this looks useful, you should almost certainly use the upstream repo at https://github.com/nathanmarlor/foxess_modbus instead of this one. 
+If this looks useful, you should almost certainly use the upstream repo at https://github.com/nathanmarlor/foxess_modbus instead of this one, but if you are having problems with KH inverters on more recent firmware, this fork may be useful to you.
 
 The purpose of this fork is to apply / test some quick fixes to enable it to work correctly with a KH inverter with recent firmware (Master 1.39), which I found were otherwise broken, [as per the issue discussed here](https://github.com/nathanmarlor/foxess_modbus/issues/678).
 
