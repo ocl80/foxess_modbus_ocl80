@@ -662,7 +662,8 @@ def _h1_current_voltage_power_entities() -> Iterable[EntityFactory]:
         addresses=[
             ModbusAddressesSpec(input=[11021], models=Inv.KH_PRE119),
             #ModbusAddressesSpec(holding=[31050, 31049], models=Inv.KH_119),
-            ModbusAddressesSpec(holding=[31014], models=Inv.KH_119),
+            #ModbusAddressesSpec(holding=[31014], models=Inv.KH_119),
+            ModbusAddressesSpec(holding=[39169, 39168], models=Inv.KH_119),
         ],
         scale=-0.001,
     )
