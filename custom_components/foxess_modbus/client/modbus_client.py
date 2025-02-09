@@ -15,10 +15,10 @@ from pymodbus.client import ModbusSerialClient
 from pymodbus.client import ModbusUdpClient
 from pymodbus.framer import FramerType
 from pymodbus.pdu import ModbusPDU
-from pymodbus.pdu.register_read_message import ReadHoldingRegistersResponse
-from pymodbus.pdu.register_read_message import ReadInputRegistersResponse
-from pymodbus.pdu.register_write_message import WriteMultipleRegistersResponse
-from pymodbus.pdu.register_write_message import WriteSingleRegisterResponse
+from pymodbus.pdu.register_message import ReadHoldingRegistersResponse
+from pymodbus.pdu.register_message import ReadInputRegistersResponse
+from pymodbus.pdu.register_message import WriteMultipleRegistersResponse
+from pymodbus.pdu.register_message import WriteSingleRegisterResponse
 
 from .. import client
 from ..common.types import ConnectionType
