@@ -108,19 +108,19 @@ class ModbusClient:
         """Read registers"""
         expected_response_type: Type[Any]
         if register_type == RegisterType.HOLDING:
-            response = await self._async_pymodbus_call(
+            response = await self._async_pymodbus_kwcall(
                 self._client.read_holding_registers,
-                start_address,
-                num_registers,
-                slave,
+                address=start_address,
+                count=num_registers,
+                slave=slave,
             )
             expected_response_type = ReadHoldingRegistersResponse
         elif register_type == RegisterType.INPUT:
-            response = await self._async_pymodbus_call(
+            response = await self._async_pymodbus_kwcall(
                 self._client.read_input_registers,
-                start_address,
-                num_registers,
-                slave,
+                address=start_address,
+                count=num_registers,
+                slave=slave,
             )
             expected_response_type = ReadInputRegistersResponse
         else:
@@ -207,6 +207,26 @@ class ModbusClient:
                 self._client.connect()
             # If the connection failed, this call will throw an appropriate error
             return call(*args)
+
+        async with self._lock:
+            result = await self._hass.async_add_executor_job(_call)
+            # This seems to be required for serial devices, otherwise subsequent reads fail
+            # The HA modbus integration does the same
+            if self._poll_delay > 0:
+                await asyncio.sleep(self._poll_delay)
+            return result
+
+    async def _async_pymodbus_kwcall(self, call: Callable[..., T], **kwargs: Any) -> T:
+        """Convert async to sync pymodbus call."""
+
+        def _call() -> T:
+            # When using pollserial://, connected calls into serial.serial_for_url, which calls importlib.import_module,
+            # which HA doesn't like (see https://github.com/nathanmarlor/foxess_modbus/issues/618).
+            # Therefore we need to do this check inside the executor job
+            if not self._client.connected:
+                self._client.connect()
+            # If the connection failed, this call will throw an appropriate error
+            return call(**kwargs)
 
         async with self._lock:
             result = await self._hass.async_add_executor_job(_call)
