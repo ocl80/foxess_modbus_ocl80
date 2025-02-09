@@ -1,5 +1,7 @@
 # FoxESS - Modbus - ocl80
 
+\*\* **As of February 2025 you should use the main upstream respository instead of this fork. Details below.** \*\*
+
 \*\* **This project is not endorsed by, directly affiliated with, maintained, authorized, or sponsored by FoxESS** \*\*
 
 ## Introduction
@@ -11,7 +13,9 @@ You can also read solar production etc in real-time, rather than once every 5 mi
 
 If this looks useful, you should almost certainly use the upstream repo at https://github.com/nathanmarlor/foxess_modbus instead of this one, but if you are having problems with KH inverters on more recent firmware, this fork may be useful to you.
 
-The purpose of this fork is to apply / test some quick fixes to enable it to work correctly with a KH inverter with recent firmware (Master 1.39), which I found were otherwise broken, [as per the issue discussed here](https://github.com/nathanmarlor/foxess_modbus/issues/678).
+The purpose of this fork WAS to apply / test some quick fixes to enable it to work correctly with a KH inverter with recent firmware (Master 1.39), which I found were otherwise broken, [as per the issue discussed here](https://github.com/nathanmarlor/foxess_modbus/issues/678).
+
+But now these fixes and more have been fully incorporated into the upstream https://github.com/nathanmarlor/foxess_modbus and you should now use that one.
 
 Depending on your inverter model, you can also set charge periods, work mode, min/max SoC.
 See [Supported Features](https://github.com/nathanmarlor/foxess_modbus/wiki/Supported-Features).
