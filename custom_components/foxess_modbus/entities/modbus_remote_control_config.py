@@ -119,7 +119,7 @@ class ModbusRemoteControlFactory:
         charge_power = ModbusRemoteControlNumberDescription(  # type: ignore
             key="force_charge_power",
             name="Force Charge Power",
-            models=all_models,
+            models=None,
             native_max_value_callback=lambda x: -x.inverter_capacity,  # - to counteract -ve scale
             mode=NumberMode.BOX,
             device_class=NumberDeviceClass.POWER,
@@ -140,7 +140,7 @@ class ModbusRemoteControlFactory:
         discharge_power = ModbusRemoteControlNumberDescription(  # type: ignore
             key="force_discharge_power",
             name="Force Discharge Power",
-            models=all_models,
+            models=None,
             native_max_value_callback=lambda x: -x.inverter_capacity,  # - to counteract -ve scale
             mode=NumberMode.BOX,
             device_class=NumberDeviceClass.POWER,
